@@ -6,6 +6,29 @@ def check():
     r2 = '2 5'
     r3 = '2 4'
     r4 = '4 4'
+
+    arr = make_arr(n, data)
+    pow2 = 1 << (n-1).bit_length()
+
+    r = list(map(int, r1.split()))
+    r = (r[0] - 1, r[1] - 1)
+    res = get_max(0, arr, r, 0, pow2 - 1)
+    print(f'{res[0]} {res[1] + 1}')
+
+    r = list(map(int, r2.split()))
+    r = (r[0] - 1, r[1] - 1)
+    res = get_max(0, arr, r, 0, pow2 - 1)
+    print(f'{res[0]} {res[1] + 1}')
+
+    r = list(map(int, r3.split()))
+    r = (r[0] - 1, r[1] - 1)
+    res = get_max(0, arr, r, 0, pow2 - 1)
+    print(f'{res[0]} {res[1] + 1}')
+
+    r = list(map(int, r4.split()))
+    r = (r[0] - 1, r[1] - 1)
+    res = get_max(0, arr, r, 0, pow2 - 1)
+    print(f'{res[0]} {res[1] + 1}')
     # print(get_max_index(n, data, r1), '>> ',2)
     # print(get_max_index(n, data, r2), '>> ', 5)
     # print(get_max_index(n, data, r3), '>> ', 2)
@@ -38,6 +61,23 @@ def make_arr(n, data):
 
 
 def main():
+    n = int(input())
+    data = input()
+    k = int(input())
+
+    arr = make_arr(n, data)
+    pow2 = 1 << (n-1).bit_length()
+    for _ in range(k):
+        r = input()
+        r = list(map(int, r.split()))
+        r = (r[0] - 1, r[1] - 1)
+        res = get_max(0, arr, r, 0, pow2 - 1)
+        print(f'{res[0]} {res[1] + 1}')
+
+if __name__ == '__main__':
+    main()
+
+def main_f():
     # n = int(input())
     # data = input()
     # k = int(input())
@@ -52,7 +92,7 @@ def main():
             r = list(map(int, r.split()))
             r = (r[0] - 1, r[1] - 1)
             res = get_max(0, arr, r, 0, pow2 - 1)
-            print(f'{res[1] + 1}')
+            print(f'{res[0]} {res[1] + 1}')
 
     # arr = make_arr(n, data)
     # pow2 = 1 << (n-1).bit_length()
@@ -65,4 +105,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    #main()
+    check()
